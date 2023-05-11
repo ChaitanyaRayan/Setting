@@ -1,0 +1,173 @@
+.body{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleSection{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    width: auto;
+  height: 28px;
+  margin: 24px 0 12px 24px;
+  font-family: Inter;
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.27;
+  letter-spacing: -0.44px;
+  text-align: left;
+  color: black;
+}
+
+.description{
+    width: auto;
+  height: 20px;
+  margin: 0px 0 12px 24px;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: gray;
+}
+
+.hr{
+    width: auto;
+    margin-top: 20px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.emailSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.leftSection{
+    width: auto;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  margin: 4px 0 0 24px;
+}
+
+.leftTitle{
+    width: auto;
+  height: 16px;
+  margin: 0 0 8px 0;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: black;
+}
+
+.leftDescripction{
+    width: 244px;
+  height: 32px;
+  margin: 8px 0 0;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+  text-align: left;
+  color: gray;
+}
+
+.rightSection{
+    width: 341px;
+  height: 274px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 4px 0 31px 0;
+  padding: 0;
+}
+
+.toggleRequired{
+    width: 341px;
+  height: 42px;
+  flex-grow: 0;
+  padding: 0 9px 2px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.toggleSection{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.toggleName{
+    width: 125px;
+    height: 16px;
+    margin: 0 151px 8px 16px;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: black;
+}
+
+.toggleDescript{
+    width: 276px;
+    height: 16px;
+    margin: 2px 0 0 16px;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: gray;
+}
+
+.callbacKButton {
+    width: auto;
+height: auto;
+flex-grow: 0;
+font-family: Inter;
+font-size: 13px;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: 1.23;
+letter-spacing: -0.26px;
+text-align: left;
+color: blue;
+margin: auto 0 22px 24px;
+border: none;
+background-color: white;
+
+}
+
+
+.callbacKButton .label{
+    color: #000;
+}

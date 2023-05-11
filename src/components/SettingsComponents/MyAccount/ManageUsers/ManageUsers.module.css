@@ -1,0 +1,235 @@
+.body{
+    /* width: auto; */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchSection{
+    width: auto;
+    height: 64px;
+    flex-grow: 0;
+    padding: 14px 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.leftsearchSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.checkBox{
+    width: auto;
+    height: 24px;
+    margin: 4px 4px 4px 0;
+    object-fit: contain;
+}
+
+.select{
+    width: auto;
+    height: 32px;
+    border: none;
+    gap: 10px;
+    margin: 0 8px 0 0;
+    padding: 4px 4px;  
+}
+
+.searchDiv{
+    width: auto;
+    height: 32px;
+    margin: 2px auto 2px 24px;
+    padding: 4px 10px 4px 8px;
+    border-radius: 4px;
+    border: solid 1px gray;  
+}
+
+.inputSearch{
+    width: 360px;
+    height: 24px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: gray; 
+    outline: none;
+    border: none; 
+    padding: 0 0 0 12px;
+}
+
+.addButton{
+    width: auto;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 0 0 0 auto;
+    padding: 10px 12px 10px 10px;
+    border-radius: 4px;
+    background-color: #486ce2;  
+}
+
+.addButtonText{
+    width: auto;
+    height: 16px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: right;
+    color: white;  
+}
+
+.userTableSection{
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e3a1;
+    margin-top: 2px;
+    
+}
+
+.table{
+    width: auto;
+    border-collapse:separate;
+    border-spacing: 0 2px;
+}
+.tableHead{
+    width: auto;
+    height: 48px;
+    flex-grow: 0;
+    padding: 16px 693px 16px 22px;
+    background-color: white
+    /* position: static; */
+}
+.tableTitle{
+  height: 48px;
+  flex-grow: 0;
+  /* padding: 13px 0px 11px 0px; */
+  background-color: white;
+  margin: 24px 12px 12px 12px;
+}
+
+.tableBody{
+    width: auto;
+  height: 76px;
+  border: solid 1px grey;
+  background-color: white;
+  margin-top: 2px;
+}
+
+.tableDetailSection{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 2px 24px 2px 24px;
+
+}
+
+.userPic{
+    width: 3rem;
+    height: 4rem;
+    margin: 0 8px;
+    padding: 10px 0;
+    /* background-color: #333331;   */
+    border-radius: 50%;
+}
+
+.userDetails{
+     width: auto;
+     height: auto;
+     display: flex;
+     flex-direction: column;
+}
+
+.userName{
+    width: auto;
+    height: 16px;
+    margin: 0 0 4px 0px;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: black; 
+}
+
+.userEmail{
+    width: auto;
+    height: 16px;
+    margin: 4px 0 0 0px;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: grey;  
+}
+
+.active{
+    width: auto;
+    height: 24px;
+    gap: 10px;
+    margin: 6px 0 6px 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: greenyellow;  
+}
+
+.activeText{
+    height: 20px;
+    flex-grow: 1;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: -0.26px;
+    text-align: center;
+    color: white;
+}
+
+.accessName{
+    width: auto;
+    height: 20px;
+    margin: 8px 0 8px 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.54;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: black;  
+}
+
+.editIcons{
+    width: 24px;
+    height: 24px;
+    flex-grow: 0;
+    margin: 0 40px 0 0;
+    object-fit: contain;
+    color: grey;  
+}

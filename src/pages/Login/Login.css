@@ -1,0 +1,264 @@
+  
+.mainPage{
+    background-image: url(../../assets/wallpaper/Login_Background@3x.png);
+    background-repeat: no-repeat;
+  background-size:cover ;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.Login_Carousel{
+    width: auto;
+  height: auto;
+  padding: 124px 140px 120px;
+  
+    /* margin: 0px 0 132px 140px; */
+}
+
+.title_side{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    margin: 0px 0 132px 140px;
+}
+
+
+.logo{
+    /* width: 172px; */
+    /* height: 48px; */
+    margin: 0 0px 12px 0;
+    object-fit: contain;
+}
+
+.title{
+    width: auto;
+    height: 56px;
+    font-family: Inter;
+    font-size: 48px;
+    /* font-weight: bold; */
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: -1.44px;
+    text-align: left;
+    color: #000;
+}
+
+.login_Pannel{
+    width: auto;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+  margin: 180px 180px 202px 0;
+  padding: 48px 32px 32px;
+  border-radius: 16px;
+  box-shadow: 0 32px 32px 0 rgba(0, 0, 0, 0.06);
+  border: solid 1px #eceff3;
+  background-color: #fff;
+}
+
+.Login_Title{
+    height: 32px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 27px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.19;
+  letter-spacing: -0.54px;
+  text-align: left;
+  color: #000;
+}
+
+.welcome_text{
+    height: 24px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-align: left;
+  color: #5c5e60;
+}
+
+.input_Fields{
+    width: auto;
+  height: auto;
+  flex-grow: 0;
+}
+
+.boxField{
+    width: 316px;
+  height: auto;
+  margin: 0 0 32px;
+  padding: 18px 0;
+  border: solid 1px #ced7e1;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.email_password{
+    border: none;
+    outline: none;
+    width: auto;
+    height: auto;
+}
+
+.icons{
+    margin-right: 1rem;
+}
+
+.btn{
+    width: 316px;
+    height: 44px;
+    text-align: center;
+    flex-grow: 1;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.07;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: #fff;
+    background-color: rgb(52, 52, 225);
+  border-radius: 5px;
+    cursor: pointer;
+}
+
+/* .signUp_Forgot{
+    width: 316px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.forgotPassword{
+    width: auto;
+    height: auto;
+    margin-left: auto;
+}
+
+.hr {
+    /* border: 0;
+    clear:both;
+    display:block; */
+    width: 96%;               
+    background-color:#FFFF00;
+    height: 1px;
+  }
+
+  Link{
+    border: none;
+    color: white;
+    text-decoration: none;
+  }
+
+  .spinner{
+    width: auto;
+    height: 100vh;
+    position: fixed;
+    align-items: center;
+    z-index: 1;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .mainPage{
+    flex-direction: row;
+    height: 100vh;
+    padding: 0;
+    
+    }
+    .Login_Carousel{
+    padding: 124px 140px 120px;
+    margin: 0;
+    }
+    .title_side{
+    margin: 0 0 132px 140px;
+    text-align: left;
+    }
+    .login_Pannel{
+    margin: 180px 180px 202px 0;
+    padding: 48px 32px 32px;
+    }
+    .boxField{
+    width: 316px;
+    }
+    .btn{
+    width: 316px;
+    }
+    }
+
+
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      .mainPage{
+      flex-direction: row;
+      align-items: center;
+      height: auto;
+      padding: 48px 0;
+      
+      }
+      .Login_Carousel{
+      padding: 0 32px;
+      margin-bottom: 48px;
+      }
+      .title_side{
+      margin: 0 32px;
+      text-align: center;
+      }
+      .login_Pannel{
+      margin: 48px 16px;
+      padding: 32px 16px;
+      }
+      .boxField{
+      width: 100%;
+      }
+      .btn{
+      width: 100%;
+      }
+      }
+
+
+      @media only screen and (max-width: 767px) {
+        .mainPage{
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 48px 0;
+        }
+        .Login_Carousel{
+        padding: 0 32px;
+        margin-bottom: 48px;
+        }
+        .title_side{
+        margin: 0 32px;
+        text-align: center;
+        }
+        .login_Pannel{
+        margin: 48px 16px;
+        padding: 32px 16px;
+        }
+        .boxField{
+        width: 100%;
+        }
+        .btn{
+        width: 100%;
+        }
+        }
+        
+        

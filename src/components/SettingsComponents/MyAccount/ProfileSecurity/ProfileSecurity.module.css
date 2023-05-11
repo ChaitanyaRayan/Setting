@@ -1,0 +1,116 @@
+.body{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.userSection{
+        width: auto;
+        height: 56px;
+        margin: 24px 0 23px 24px;
+        display: flex;
+        flex-direction: row;
+}
+
+.userPic{
+    width: 56px;
+  height: 56px;
+  margin: 0 16px 0 0;
+  border: solid 0.9px rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.userDetails{
+    width: auto;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  /* margin: 24px 0 23px 24px; */
+}
+
+.userName{
+    width: auto;
+  height: 16px;
+  flex-grow: 0;
+  margin: 0 0 4px 0;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: black;
+}
+
+.userEmail{
+    width: auto;
+  height: 16px;
+  flex-grow: 0;
+  margin: 0 0 4px 0;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+  text-align: left;
+  color: gray;
+}
+
+.userType{
+    width: auto;
+  height: 16px;
+  flex-grow: 0;
+  margin: 0 0 4px 0;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+  text-align: left;
+  color: gray;
+}
+
+
+.hr{
+    width: auto;
+    margin: 0 24px 0 24px;
+}
+.editSection{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 24px auto auto 24px;
+}
+
+.changePassword{
+    width: auto;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin: 0 12px auto 0;
+  padding: 10px 10px;
+  border-radius: 4px;
+  background-color: rgb(230, 230, 239) !important;
+}
+
+.changePasswordText{
+    height: 24px;
+  flex-grow: 1;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: rgb(99, 99, 193)
+
+}

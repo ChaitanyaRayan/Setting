@@ -1,0 +1,66 @@
+.title{
+    text-align: start;
+    margin: 1rem 0 0 1rem;
+    font-size: 2rem;
+}
+.home{
+    text-align: center;
+    background-image: url(../../assets/wallpaper/bg.jpg);
+    background-repeat: no-repeat;
+  background-size:cover ;
+  width: auto;
+  height: 100vh;
+  color: white;
+  font-weight: 700;
+  padding-top: 1rem;
+}
+
+.welcomes{
+    margin-top: 1rem;
+}
+
+.searchBox{
+    width: 312px;
+  height: 180px;
+  margin: 2rem 0 auto calc(83% - 1rem);
+  padding: 16px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.label{
+    width: 117px;
+    height: 16px;
+    margin: 0 163px 16px 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: gray
+}
+
+
+.inputField{
+    width: 280px;
+  height: 52px;
+  flex-grow: 0;
+  margin: 16px 0 0px;
+  padding: 17px 18px 17px 12px;
+  border-radius: 4px;
+  border: gray;
+  background-color: white
+}
+
+.search{
+    border: none;
+    outline: none;
+    margin-right: 98px;
+}
+
+.btn{
+    width: 280px;
+}

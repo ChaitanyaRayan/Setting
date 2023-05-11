@@ -1,0 +1,12 @@
+.cardSections{
+    width: auto;
+    margin: 24px auto auto 24px;
+    display: flex;
+    gap: 20px;
+
+}
+
+.hr{
+    width: auto;
+    margin: 0 24px 0 24px;
+}

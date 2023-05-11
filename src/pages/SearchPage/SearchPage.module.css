@@ -1,0 +1,13 @@
+.body{
+    height: 100vh;
+    background-color: #e6e6e3a1 ;
+  /* box-sizing: border-box; */
+    position: relative;
+    margin-bottom: -40px; 
+}
+
+
+.initialSearch{
+    display: flex;
+    flex-direction: row;
+}

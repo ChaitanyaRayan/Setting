@@ -1,0 +1,13 @@
+.spinner{
+    width: stretch;
+
+}
+
+
+.gif{
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    display: block;
+}
+

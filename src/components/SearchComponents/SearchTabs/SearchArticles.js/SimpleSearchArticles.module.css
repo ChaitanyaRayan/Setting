@@ -1,0 +1,333 @@
+.body{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #e6e6e3a1;
+}
+
+.articleHead{
+    height: 44px;
+    align-self: stretch;
+    flex-grow: 0;
+    padding: 6px 20px;
+    margin: 2px 12px 2px 12px !important;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.checkBoxPage{
+    /* columns: 3; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    
+}
+
+.inputCheck{
+    width: auto;
+    height: auto;
+    margin: 4px 4px 4px 0;
+    object-fit: contain;
+}
+
+.select{
+    width: auto;
+    height: 32px;
+    margin: 0 0 0 8px;
+    border: none;
+    background-color: white;
+    font-family: Inter;
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: gray
+}
+
+.pagination{
+    width: auto;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 4px 0 4px 0;
+  padding: 0;
+}
+
+.pageNumbers{
+    width: auto;
+  height: 24px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border:  2px solid rgba(72, 108, 226, 0.2);
+  background-color: white;
+  color: blue;
+}
+
+.tagsThemes{
+    width: auto;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin: 0 20px 0 0;
+    padding: 0;
+}
+
+.tagTitle{
+    width: auto;
+    height: 16px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: gray;
+}
+
+.col-6 {
+  width: calc(50% - 15px); /* subtracting padding and margin from the width */
+  box-sizing: border-box; /* include padding and border in the width calculation */
+}
+
+.article{
+    width: auto;
+    height: 196px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; 
+  padding: 16px 20px;
+  background-color: white;
+  margin: 0 12px 2px 12px;
+    overflow: hidden;
+}
+
+.articleTitle{
+    width: calc(50% - 15px); /* subtracting padding and margin from the width */
+  box-sizing: border-box; /* include padding and border in the width calculation */
+  height: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0 40px 0 0;
+  padding: 0;
+}
+
+.articleIcons{
+    width: auto;
+    height: 24px;
+    flex-grow: 0;
+    display: flex;      
+  align-items: center; 
+  gap: 10px;          
+  padding: 0;
+}
+
+.articleDetails{
+    height: 84px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 6px;
+  padding: 0;
+}
+
+.articleName{
+    height: 20px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 17px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.18;
+  letter-spacing: -0.34px;
+  text-align: left;
+  color: black;
+}
+
+.articleDescription{
+    height: 58px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: gray;
+}
+
+.articleFooter{
+    height: 24px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0;
+}
+
+.articleWebImg{
+    width: 24px;
+  height: 24px;
+  flex-grow: 0;
+  object-fit: contain;
+}
+
+.articleFooterDetails{
+    height: 24px;
+  flex-grow: 1;
+  font-family: Inter;
+  font-size: 11px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  color: gray
+}
+
+.articleImageReach{
+    width: calc(50% - 15px); /* subtracting padding and margin from the width */
+    box-sizing: border-box; /* include padding and border in the width calculation */
+    display: flex;
+    flex-direction: row;
+}
+
+.articleImg{
+    width: 200px;
+  height: 156px;
+  margin: 0 16px 8px 40px;
+}
+
+.articleStatitics{
+    width: auto;
+  height: 156px;
+  margin: 0 0 8px 16px;
+  padding: 12px 74px 44px 20px;
+  /* background-color: var(--bw-white); */
+}
+
+.articleSentiment{
+    width: auto;
+    height: 24px;
+    flex-grow: 0;
+    display: flex;  
+    justify-content: space-between;    
+  align-items: center; 
+  padding: 0;
+}
+
+.articleSentimentType{
+    width: auto;
+  height: 32px;
+  display: flex;  
+  align-items: center; 
+  gap: 6px;
+  margin: 0 0 16px 0;
+  padding: 0 8px 0 6px;
+  border-radius: 16px;
+  background-color: #d3f3dd;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: black
+}
+
+.articleSentimentInNumber{
+    width: auto;
+  height: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 56px;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.articleReach{
+    width: auto;
+  height: 18px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: gray;
+
+}
+
+.articleReachNum{
+    color: var(--bw-black);
+
+}
+
+.articleMatchingKeywords{
+    width: auto;
+    height: 18px;
+    margin: 16px 46px 0 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: gray;
+    font-weight: 600;
+
+}
+
+.articleMatches{
+    font-weight: 600;
+  color: rgb(93, 93, 93);
+}
+

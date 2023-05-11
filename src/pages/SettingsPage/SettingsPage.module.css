@@ -1,0 +1,130 @@
+@media (min-width: 1024px) {
+.body{
+    height: stretch;
+    background-color: #e6e6e3a1 ;
+  /* box-sizing: border-box; */
+    position: relative;
+}
+.titleSection{
+    width: auto;
+  height: 92px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+  padding: 16px 24px;
+  border:  1px solid white;
+  background-color: white
+}
+
+.title{
+    height: 44px;
+    flex-grow: 1;
+    font-family: Inter;
+    font-size: 37px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: -0.74px;
+    text-align: left;
+    color: black
+}
+
+.items{
+    display: flex;
+    flex-direction: row;
+}
+}
+
+/* Medium screens */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .body {
+      height: stretch;
+      background-color: #e6e6e3a1;
+      /* box-sizing: border-box; */
+      position: relative;
+    }
+  
+    .titleSection {
+      width: auto;
+      height: 92px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 10px;
+      padding: 16px 24px;
+      border: 1px solid white;
+      background-color: white;
+    }
+  
+    .title {
+      height: 44px;
+      flex-grow: 1;
+      font-family: Inter;
+      font-size: 37px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.19;
+      letter-spacing: -0.74px;
+      text-align: left;
+      color: black;
+    }
+  
+    .items {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+
+  /* Small screens */
+
+  @media (max-width: 767px) {
+    .body {
+      height: stretch;
+      background-color: #e6e6e3a1;
+      /* box-sizing: border-box; */
+      position: relative;
+    }
+  
+    .titleSection {
+      width: auto;
+      height: 92px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 10px;
+      padding: 16px 24px;
+      border: 1px solid white;
+      background-color: white;
+    }
+  
+    .title {
+      height: 44px;
+      flex-grow: 1;
+      font-family: Inter;
+      font-size: 37px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.19;
+      letter-spacing: -0.74px;
+      text-align: left;
+      color: black;
+    }
+  
+    .items {
+      display: flex;
+      flex-direction: row; /* Updated to column for small screens */
+    }
+  }
+  

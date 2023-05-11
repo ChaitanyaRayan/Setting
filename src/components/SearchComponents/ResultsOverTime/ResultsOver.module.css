@@ -1,0 +1,104 @@
+.body{
+    width: auto;
+    height: 354px;
+    background-color: white;
+    margin: 0 12px 2px 12px;
+}
+
+.titleSection{
+    width: auto;
+  height: auto;
+  flex-grow: 0;
+  padding: 20px 20px 12px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title{
+    width: auto;
+    height: 18px;
+    margin: 4px 0 2px 0;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: gray;
+}
+
+
+
+ .toggleButton{
+    margin-left: -100px;
+
+ }
+
+.button{
+    width: 84px;
+  height: auto;
+}
+
+
+.icons{
+    width: 200px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.icon{
+    margin-top: 6px;
+   margin-left: 10px;
+   display: inline;
+    justify-content: space-evenly;
+}
+
+.faIcon{
+    margin-left: 2rem !important;
+}
+
+.image{
+    width: auto;
+    height: 260px;
+    opacity: 0.6;
+    background-color: #d9d9d9;
+    margin: 10px 40px 10px 40px;
+    border-radius: 10px 10px 0 0;
+}
+
+.insights{
+    width: auto;
+    height: 72px;
+  align-self: stretch;
+  flex-grow: 0;
+  padding: 20px 1414px 32px 20px;
+  border: solid 1px var(--bw-grey-01);
+  background-color: white;
+  margin: 0 12px 12px 12px
+}
+
+.insightsDetails{
+    width: auto;
+  height: 20px;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: -0.26px;
+  text-align: left;
+  color: black;
+}
+
+.insightsDetails label{
+    font-weight: bold;
+  line-height: 1.23;
+
+}

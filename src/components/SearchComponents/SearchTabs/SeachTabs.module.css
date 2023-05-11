@@ -1,0 +1,36 @@
+.body{
+    width: auto;
+    height: 44px;
+    background-color: white;
+    margin: 0 12px 2px 12px;
+
+}
+
+.tabs{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.active{
+    width: auto;
+    height: 16px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: rgb(94, 94, 195);
+}
+
+.activeBar{
+    margin-top: 15px;
+    position: relative;
+    border-bottom: 3px solid rgb(93, 92, 92);
+}
