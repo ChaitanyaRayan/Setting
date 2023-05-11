@@ -190,7 +190,7 @@ const Login = ({onInputChange}) => {
     {/* <p onClick={() =>navigator('/forgotPassword')} className="forgotPassword"> Forgot Password</p> */}
     <p className="forgotPassword" onClick={forgotPassword}> <Link >Forgot Password</Link></p>
     <hr className="hr"/>
-    <Link to="/signup"> <button onClick={() =>navigator('/signup')}  className="btn btn-primary">SignUp</button></Link>
+    {/* <Link to="/signup"> <button onClick={() =>navigator('/signup')}  className="btn btn-primary">SignUp</button></Link> */}
       </div>
       <ToastContainer/>
     </div>
