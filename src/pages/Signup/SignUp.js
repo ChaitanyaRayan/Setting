@@ -102,14 +102,14 @@ function SignUp() {
         .then(
           (resp) => {
 
-            setLoginInputs({
+            setSignUp({
               loading: true
             })
             if(localStorage.getItem("user")){
               navigator('/home');
     
               if(navigator('/home')){
-                setLoginInputs({
+                setSignUp({
                   loading:false
                 })
               }
@@ -141,7 +141,7 @@ function SignUp() {
    // Loading Spinner
    let spinner;
 
-   if(loginInputs.loading){
+   if(signUp.loading){
      spinner = <div className="spinner"><Spinner/></div>
    }
  
