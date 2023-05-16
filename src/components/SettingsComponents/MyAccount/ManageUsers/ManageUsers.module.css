@@ -77,7 +77,7 @@
     margin: 0 0 0 auto;
     padding: 10px 12px 10px 10px;
     border-radius: 4px;
-    background-color: #486ce2;  
+    background-color: #486ce2 !important;  
 }
 
 .addButtonText{
@@ -103,6 +103,19 @@
     
 }
 
+.userTableSection{
+    width:auto;
+    overflow-y:scroll;
+    position:relative;
+    height: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .userTableSection::-webkit-scrollbar{
+    display: none;
+  }
+
 .table{
     width: auto;
     border-collapse:separate;
@@ -125,7 +138,7 @@
 }
 
 .tableBody{
-    width: auto;
+    width: 100vw;
   height: 76px;
   border: solid 1px grey;
   background-color: white;
@@ -193,7 +206,16 @@
     margin: 6px 0 6px 0;
     padding: 2px 8px;
     border-radius: 4px;
-    background-color: greenyellow;  
+    background-color: rgb(14, 114, 14) !important;  
+}
+.inactive{
+    width: auto;
+    height: 24px;
+    gap: 10px;
+    margin: 6px 0 6px 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: rgb(233, 78, 31) !important;  
 }
 
 .activeText{
@@ -208,6 +230,8 @@
     letter-spacing: -0.26px;
     text-align: center;
     color: white;
+    display: flex;
+    align-items: center;
 }
 
 .accessName{
@@ -225,11 +249,41 @@
     color: black;  
 }
 
-.editIcons{
+.editIcons {
     width: 24px;
     height: 24px;
     flex-grow: 0;
     margin: 0 40px 0 0;
     object-fit: contain;
-    color: grey;  
-}
+    color: grey;
+    position: relative; /* Add this line */
+  }
+  
+  .iconContainer {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style-type: none;
+    position: absolute; /* Add this line */
+    top: calc(70% + 4px); /* Add this line */
+    left: 0; /* Add this line */
+    z-index: 1;
+    /* background: #fff; */
+    /* border: 1px solid #2a2828; */
+    width: auto;
+    padding: 8px;
+    margin: 0; /* Add this line */
+    color: #000;
+  }
+  
+  .list{
+    width: auto;
+    color: black;
+    font-size: medium;
+    font-weight: 700;
+    border: 1px solid gray;
+    padding: 6px;
+    background-color: white;
+  }

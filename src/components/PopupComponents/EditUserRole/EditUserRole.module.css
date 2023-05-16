@@ -1,0 +1,182 @@
+.body{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0,0,0,0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp{
+    position:relative;
+    padding: auto;
+    width: 360px;
+    max-width: 680px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.titleSection{
+    display: flex;
+    justify-content: flex-start;
+    padding: 24px;
+    align-items: left
+}
+
+.ChangePasswordTitle{
+    width: auto;
+    height: 28px;
+    flex-grow: 0;
+    font-family: Inter;
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.27;
+    letter-spacing: -0.44px;
+    text-align: left;
+    color: black;
+}
+
+.inputFields{
+    display: flex;
+    flex-direction: column;
+}
+
+.selectAccess{
+    width: auto;
+    height: 16px;
+    flex-grow: 0;
+    margin: 0 0px 4px 8px;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: black; 
+    margin-left: 25px;
+}
+
+.editAcess{
+    width: 16vw;
+    height: 50px;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 13px;
+    margin-left: 24px;
+    border-radius: 4px;
+    border: solid 1px grey;
+}
+
+.userSection{
+    width: auto;
+  height: 112px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* gap: 10px; */
+  padding: 32px 24px 44px;
+  margin-right: auto;
+
+}
+.profile{
+    width: 36px;
+    height: 36px;
+    margin: 0 8px 0 auto;
+    padding: 10px 0;
+    background-color: #d62884;
+    border-radius: 10px;
+}
+
+.userName{
+    width: auto;
+    height: 16px;
+    flex-grow: 0;
+    margin: 0 0px 4px 8px;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.23;
+    letter-spacing: -0.26px;
+    text-align: left;
+    color: black;  
+}
+
+.userEmail{
+    width: auto;
+    height: 16px;
+    flex-grow: 0;
+    margin: 4px 0 0 8px;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.24px;
+    text-align: left;
+    color: var(--bw-grey-04);  
+}
+
+.cancelSubmitButtons{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 24px;
+}
+
+.cancelButton{
+    width: auto;
+  height: 44px;
+  padding: 13px 32px;
+  border-radius: 4px;
+  background-color: #e4e9fb;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: blue
+}
+
+.addUserButton{
+    width: auto;
+  height: 44px;
+  padding: 13px 32px;
+  border-radius: 4px;
+  background-color: blue;
+margin-left: 12px;
+  flex-grow: 0;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: white;
+}

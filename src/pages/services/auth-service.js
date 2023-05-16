@@ -1,21 +1,23 @@
 import axios from 'axios'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 
-const baseUrl = "http://54.241.251.179:8000/user";
+const baseUrl = "http://13.52.39.75:8000/user";
 // const baseUrl = "http://127.0.0.1:8000/user";
 
 
  
 // const [message,setMessage] = useState('')
 
-const signUp =async ({name,email, password, password2} ) =>{
+const signUp =async ({first_name, last_name,email, password, password2} ) =>{
     // required username and confirm password
-    console.log({name,email, password, password2});
+    console.log({first_name, last_name,email, password, password2});
     const resp = await axios.post(`${baseUrl}/register/`, {
+        first_name,
+        last_name,
         email,
-        name,
+        // "role_name": 'admin',
          password,
         password2
     })
@@ -76,13 +78,137 @@ const getCurrentUser = () =>{
     return JSON.parse(localStorage.getItem("user"))
 };
 
+
+const changePassword = async ({old_password,password, password2}) =>{
+    const token = localStorage.getItem("user")
+    
+    // Parse the token JSON string into an object
+  const tokenObj = JSON.parse(token);
+
+  // Access the refresh token from the token object
+  let refresh_token = tokenObj.token.access;
+
+  setTimeout(
+    () =>{
+        refresh_token = tokenObj.token.refresh
+    },1000
+  )
+
+//   alert(refresh_token);
+    // console.log(token);
+
+    const resp = (
+        await axios.post(baseUrl + `/changepassword/`,{
+            old_password,
+            password,
+            password2
+        },
+        {
+            headers: {
+              'Authorization': `Bearer ${refresh_token}`
+            }
+          }
+        )
+    )
+    console.log(resp);
+
+    return resp.data
+}
+
+
+const getSignUpData = async () =>{
+    const token = localStorage.getItem("user")
+    
+    // Parse the token JSON string into an object
+  const tokenObj = JSON.parse(token);
+
+  // Access the refresh token from the token object
+  const refresh_token = tokenObj.token.access;
+
+  
+    // console.log(token);
+    const resp = (
+        await axios.get(baseUrl + `/profile/`,
+        {
+            headers: {
+              'Authorization': `Bearer ${refresh_token}`
+            }
+          }
+        )
+    )
+    console.log(resp);
+
+    return resp.data
+        }
+
+        
+        const updateProfile = async(values) =>{
+            const token = localStorage.getItem("user")
+    
+            // Parse the token JSON string into an object
+          const tokenObj = JSON.parse(token);
+        
+          // Access the refresh token from the token object
+          let refresh_token = tokenObj.token.access;
+        
+          setTimeout(
+            () =>{
+                refresh_token = tokenObj.token.refresh
+                alert(refresh_token)
+                changePro(values,refresh_token)
+            },1000
+          )
+          alert('refresh', refresh_token)
+        
+        //   alert(refresh_token);
+            // console.log(token);
+        
+            // const resp = (
+            //     await axios.post(baseUrl + `/changeprofile/`,{
+            //         first_name: values.first_name,
+            //         last_name: values.last_name,
+            //     },
+            //     {
+            //         headers: {
+            //           'Authorization': `Bearer ${refresh_token}`
+            //         }
+            //       }
+            //     )
+            // )
+            // console.log(resp);
+        
+            // return resp.data
+             changePro(values,refresh_token);
+        }
+
+        const changePro = async(values,token) =>{
+            const resp = (
+                await axios.post(baseUrl + `/changeprofile/`,{
+                    first_name: values.first_name,
+                    last_name: values.last_name,
+                },
+                {
+                    headers: {
+                      'Authorization': `Bearer ${token}`
+                    }
+                  }
+                )
+            )
+            console.log(resp);
+        
+            return resp.data
+        }
+
 const  authService ={
     signUp,
     login,
     logout,
     forgotPassword,
     setPassword,
-    getCurrentUser
+    getCurrentUser,
+    changePassword,
+    getSignUpData,
+    updateProfile
 }
 
 export default authService;

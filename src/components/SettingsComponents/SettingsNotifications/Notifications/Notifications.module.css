@@ -2,6 +2,8 @@
     width: auto;
     display: flex;
     flex-direction: column;
+    /* background-color: white;
+    margin: 12px 12px 12px 0; */
 }
 
 .titleSection{

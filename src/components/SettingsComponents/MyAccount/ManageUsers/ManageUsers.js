@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import manageUserCss from "./ManageUsers.module.css";
+import axios from "axios";
 import {
   FaEdit,
   FaExpand,
@@ -9,47 +10,200 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
+import { settingService } from "../../../../ServiceAPI/SettingService/setting-service";
+import AddUsers from "../../../PopupComponents/AddNewUsers/AddUsers";
+import DeleteUserRole from "../../../PopupComponents/DeleteUserRole/DeleteUserRole";
+import EditUserRole from "../../../PopupComponents/EditUserRole/EditUserRole";
+
 function ManageUsers() {
+
+ 
+
+  const [settingUsers, setSettingUsers] = useState([]);
+  const [settingUserRole, setSettingUserRoles] = useState([]);
+  const [addUserPopup, setAddUserPopup] = useState(false);
+  const [deleteUserPop, setDeleteUserPopup] = useState(false);
+  const [editUserRole, setEditUserRole] = useState(false);
+  const [isReload, setIsReload] = useState(false);
+  const [isMenu, setIsMenu] = useState(false);
+  const [userDeal, setUserDeal] = useState({})
+const [searchUser, setSearchUser] = useState(''); // searching user in input field
+const [filteredResults, setFilteredResults] = useState([])
+
+const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+const [inActiveAPI, setInActiveAPI] = useState('All')
+
+
+  useEffect(() => {
+if(inActiveAPI === 'All'){
+  setIsReload(false);
+  settingService.getUsers().then((resp) =>{
+    setSettingUsers(resp)
+    console.log(resp);
+  })
+}
+else if(inActiveAPI === 'All Inactive'){
+  setIsReload(false);
+  settingService.getAllInactive().then((resp) =>{
+    setSettingUsers(resp)
+    console.log("inact",resp);
+  })
+}
+else {
+  settingService.getAllActive().then((resp) =>{
+    setIsReload(false);
+    setSettingUsers(resp)
+    console.log('act',resp);
+  })
+
+}
+  
+  }, [isReload,inActiveAPI]);
+
+  // to open menu option after checking icon
+  const toggleMenu =(index) =>{
+    setIsMenu((prevIndex) =>(prevIndex=== index ? null: index));
+  }
+
+  // to open a popup when user click on delete icon
+  const deleteButton =(status,user) =>{
+    setIsMenu(false)
+    setDeleteUserPopup(status);
+    setUserDeal(user)
+  }
+  // to open a popup when user click on edit icon
+
+  const editRole =(user) =>{
+    setEditUserRole(true);
+    setUserDeal(user)
+  }
+
+
+  // to search the users 
+  const searchItems =(searchValue) =>{
+setSearchUser(searchValue)
+if(searchUser !== ''){
+const filteredData =settingUsers.filter((item) =>{
+  return Object.values(item).join('').toLowerCase().includes(searchValue.toLowerCase())
+})
+// console.log(filteredData);
+setFilteredResults(filteredData)
+} else{
+  setFilteredResults(settingUsers )
+}
+  }
+
+ const handleSelectAll = () => {
+   const addDetails = settingUsers.map((user) => user.user_id);
+  if (selectedCheckboxes.length === settingUsers.length) {
+    setSelectedCheckboxes([]);
+  } else {
+    setSelectedCheckboxes(addDetails);
+    console.log(addDetails);
+  }
+};
+
+
+const handleCheckboxClick = (user) => {
+  const isChecked = selectedCheckboxes.includes(user.user_id);
+
+  if (isChecked) {
+    const updatedCheckboxes = selectedCheckboxes.filter(
+      (checkbox) => checkbox !== user.user_id
+    );
+    setSelectedCheckboxes(updatedCheckboxes);
+  } else {
+    setSelectedCheckboxes([...selectedCheckboxes, user.user_id]);
+    console.log(selectedCheckboxes);
+  }
+};
+
+
+  const updateUser = (user) => {
+    setIsMenu(false)
+    if(user.active) {
+      setIsReload(true)
+      settingService.updateUsers(user.user_id, false).then((resp) =>{
+        setIsReload(false)
+        console.log(resp);
+      })  
+    } else {
+      setIsReload(true)
+      settingService.updateUsers(user.user_id, true).then((resp) =>{
+        setIsReload(false)
+        console.log(resp);
+      })  
+    }
+    
+  }
+  
+
+  
+  
+  
+
   return (
     <div className={manageUserCss.body}>
       <div className={manageUserCss.searchSection}>
         <div
           className={`${manageUserCss.leftsearchSection} col-6 d-flex flex-row`}
         >
-          <input type="checkbox" className={manageUserCss.checkBox} />
-          <select className={manageUserCss.select}>
-            <option value="Selected">Select</option>
+          <input
+  type="checkbox"
+  className={manageUserCss.checkBox}
+  checked={selectedCheckboxes.length === settingUsers.length}
+onChange={handleSelectAll}
+  />
+          <select className={manageUserCss.select} value={inActiveAPI} onChange={(e) => setInActiveAPI(e.target.value)}>
+            <option value="All" >All</option>
+            <option value="All Inactive" >All Inactive</option>
+            <option value="All Active">All Active</option>
           </select>
           <div className={manageUserCss.searchDiv}>
             <FaSearch />
-            <input type="text" className={manageUserCss.inputSearch} placeholder="Search Users" />
+            <input
+              type="text"
+              className={manageUserCss.inputSearch}
+              placeholder="Search Users"
+              onChange={(e) => searchItems(e.target.value)}
+            />
           </div>
         </div>
-        <div className={`${manageUserCss.addButton} btn col-1`}>
+        <div className={`${manageUserCss.addButton} btn col-1`} onClick={() => setAddUserPopup(true)}>
           <FaPlus />
           <label className={manageUserCss.addButtonText}>Add User</label>
         </div>
       </div>
       <div className={manageUserCss.userTableSection}>
         <table className={`${manageUserCss.table} col-12`}>
-            <thead className={manageUserCss.tableHead}>
-          <tr >
-            <th className={`${manageUserCss.tableTitle} col-2`}>Name</th>
-            <th className={`${manageUserCss.tableTitle} col-2`}>Status</th>
-            <th className={`${manageUserCss.tableTitle} col-2`}>
-              Access Level <FaInfoCircle />
-            </th>
-            <th className={`${manageUserCss.tableTitle} col-2`}>Added On</th>
-            <th className={`${manageUserCss.tableTitle} col-1`}></th>
-            <th className={`${manageUserCss.tableTitle} col-1`}></th>
-          </tr>
+          <thead className={manageUserCss.tableHead}>
+            <tr>
+              <th className={`${manageUserCss.tableTitle} col-2`}>Name</th>
+              <th className={`${manageUserCss.tableTitle} col-2`}>Status</th>
+              <th className={`${manageUserCss.tableTitle} col-2`}>
+                Access Level <FaInfoCircle />
+              </th>
+              <th className={`${manageUserCss.tableTitle} col-2`}>Added On</th>
+              <th className={`${manageUserCss.tableTitle} col-1`}></th>
+              <th className={`${manageUserCss.tableTitle} col-1`}></th>
+            </tr>
           </thead>
-          <tbody >
-            <tr className={`${manageUserCss.tableBody}`}>
+          <tbody>
+            {searchUser.length  ?(
+
+             filteredResults.map((user, index) => 
+            
+
+            <tr className={`${manageUserCss.tableBody}`} key={index}>
               <td
                 className={`${manageUserCss.tableDetailSection} col-2 d-flex flex-row`}
               >
-                <input type="checkbox" className={manageUserCss.checkBox} />
+                <input
+      type="checkbox"
+      className={manageUserCss.checkBox}
+      checked={selectedCheckboxes.includes(user.user_id)}
+      onChange={() => handleCheckboxClick(user)}
+    />
                 <div className={manageUserCss.userProfilePic}>
                   <img
                     className={manageUserCss.userPic}
@@ -59,36 +213,69 @@ function ManageUsers() {
                 </div>
                 <div className={manageUserCss.userDetails}>
                   <label className={manageUserCss.userName}>
-                    Anuran Chakraborty
+                    {/* Anuran Chakraborty */}
+                    {user.first_name} &nbsp; {user.last_name}
                   </label>
                   <span className={manageUserCss.userEmail}>
-                    anuran.chakraborty@infovision.com
+                    {/* anuran.chakraborty@infovision.com */}
+                    {user.email}
                   </span>
                 </div>
               </td>
               <td className={`${manageUserCss.activeUserSection} col-2`}>
-                <div className={`${manageUserCss.active} btn`}>
-                  <span className={manageUserCss.activeText}>Active</span>
-                </div>
+               { user.active  ?
+               
+               (<div className={`${manageUserCss.active} btn`}>
+                  <span className={manageUserCss.activeText} >Active</span>
+                </div>)
+                : (<div className={`${manageUserCss.inactive} btn`}>
+                <span className={manageUserCss.activeText} >Inactive</span>
+              </div>)
+              }
               </td>
               <td className={`${manageUserCss.accessType}`}>
-                <span className={manageUserCss.accessName}>Analyst</span>
+              {/* {settingUserRole.length ? */}
+            {/* settingUserRole.map((role, index) => */}
+                <span className={manageUserCss.accessName}>{user.role_name} </span>
+              {/* } */}
               </td>
               <td className={`${manageUserCss.accessType} col-2`}>
-                <span className={manageUserCss.accessName}>02 Jun 2022</span>
+                <span className={manageUserCss.accessName}>{user.created_by}</span>
+              </td>
+              <td className={`${manageUserCss.editIcons} col-1`} onClick={() =>editRole(user)}>
+                <FaEdit />
+
               </td>
               <td className={`${manageUserCss.editIcons} col-1`}>
-                <FaEdit /> 
+                <div onClick={() =>toggleMenu(index)} className={manageUserCss.iconContainer}>
+                <FaExpand />
+                </div>
+                <div >
+                {isMenu === index &&
+                  <ul >
+                                      <li className={manageUserCss.list}  onClick={() => updateUser(user)}>{user.active ? 'Disable User' : 'Enable User'}</li>
+
+                    <li className={manageUserCss.list} onClick={() => deleteButton(true,user)}>Delete User</li>
+                    {/* <li className={manageUserCss.list} onClick={() => deleteUserRole(user.user_id)}>Delete User</li> */}
+                    <li className={manageUserCss.list} onClick={() =>editRole(user)}>Edit</li>
+                  </ul>
+}
+                </div>
               </td>
-              <td className={`${manageUserCss.editIcons} col-1`}>
-                 <FaExpand />
-              </td>
-            </tr>
-            <tr className={`${manageUserCss.tableBody}`}>
+            </tr>)): (
+
+
+settingUsers.map((user,index) =>
+<tr className={`${manageUserCss.tableBody}`} key={index}>
               <td
                 className={`${manageUserCss.tableDetailSection} col-2 d-flex flex-row`}
               >
-                <input type="checkbox" className={manageUserCss.checkBox} />
+               <input
+      type="checkbox"
+      className={manageUserCss.checkBox}
+      checked={selectedCheckboxes.includes(user.user_id)}
+      onChange={() => handleCheckboxClick(user)}
+    />
                 <div className={manageUserCss.userProfilePic}>
                   <img
                     className={manageUserCss.userPic}
@@ -98,35 +285,81 @@ function ManageUsers() {
                 </div>
                 <div className={manageUserCss.userDetails}>
                   <label className={manageUserCss.userName}>
-                    Anuran Chakraborty
+                    {/* Anuran Chakraborty */}
+                    {user.first_name} &nbsp; {user.last_name}
                   </label>
                   <span className={manageUserCss.userEmail}>
-                    anuran.chakraborty@infovision.com
+                    {/* anuran.chakraborty@infovision.com */}
+                    {user.email}
                   </span>
                 </div>
               </td>
               <td className={`${manageUserCss.activeUserSection} col-2`}>
-                <div className={`${manageUserCss.active} btn`}>
-                  <span className={manageUserCss.activeText}>Active</span>
-                </div>
+               { user.active  ?
+               
+               (<div className={`${manageUserCss.active} btn`}>
+                  <span className={manageUserCss.activeText} >Active</span>
+                </div>)
+                : (<div className={`${manageUserCss.inactive} btn`}>
+                <span className={manageUserCss.activeText} >Inactive</span>
+              </div>)
+              }
               </td>
               <td className={`${manageUserCss.accessType}`}>
-                <span className={manageUserCss.accessName}>Analyst</span>
+              {/* {settingUserRole.length ? */}
+            {/* // settingUserRole.map((role, index) => */}
+                <span className={manageUserCss.accessName}>{user.role_name} </span>
+              {/* } */}
               </td>
               <td className={`${manageUserCss.accessType} col-2`}>
-                <span className={manageUserCss.accessName}>02 Jun 2022</span>
+                <span className={manageUserCss.accessName}>{user.created_by}</span>
+              </td>
+              <td className={`${manageUserCss.editIcons} col-1`} onClick={() =>editRole(user)}>
+                <FaEdit />
+
               </td>
               <td className={`${manageUserCss.editIcons} col-1`}>
-                <FaEdit /> 
+                <div onClick={() =>toggleMenu(index)} className={manageUserCss.iconContainer}>
+                <FaExpand />
+                </div>
+                <div >
+                {isMenu === index &&
+                  <ul >
+                    <li className={manageUserCss.list}  onClick={() => updateUser(user)}>{user.active ? 'Disable User' : 'Enable User'}</li>
+
+                    <li className={manageUserCss.list} onClick={() => deleteButton(true,user)}>Delete User</li>
+                    {/* <li className={manageUserCss.list} onClick={() => deleteUserRole(user.user_id)}>Delete User</li> */}
+                    <li className={manageUserCss.list} onClick={() =>editRole(user)}>Edit</li>
+                  </ul>
+                }
+                </div>
               </td>
-              <td className={`${manageUserCss.editIcons} col-1`}>
-                 <FaExpand />
-              </td>
-            </tr>
+            </tr>)
+            )
+}
           </tbody>
         </table>
       </div>
+      <AddUsers trigger={addUserPopup}
+       onDismiss={(val) => {
+        setAddUserPopup(false)
+        setIsReload(!isReload)
+      }}/>
+
+      <DeleteUserRole trigger ={deleteUserPop} cancel={(val) =>{
+        setDeleteUserPopup(false)
+        setIsReload(!isReload)
+      }}
+      userId={userDeal}
+      />
+<EditUserRole trigger={editUserRole} cancel={(val) =>{
+  setEditUserRole(false)
+  setIsReload(!isReload)
+}}
+userRole={userDeal}
+ />
     </div>
+    
   );
 }
 

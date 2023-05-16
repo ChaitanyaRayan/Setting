@@ -64,7 +64,7 @@ const Header = () => {
                         <a className='nav-link' href="/search">Search</a>
                         <a className='nav-link ' href="/dashboard">Dashboard</a>
                         <a className='nav-link ' href="/newsLetter" onClick={handleClick}>NewsLetters</a>
-                        <a className='nav-link logout' href="/setting" tabindex="-1" >Setting</a>
+                        <a className='nav-link logout' href="/setting/myaccount" tabindex="-1" >Setting</a>
                         <a className='nav-link logout' href="" tabindex="-1" onClick={logOut}>Logout</a>
 
                     </div>

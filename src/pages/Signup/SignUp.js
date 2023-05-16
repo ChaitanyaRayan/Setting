@@ -7,6 +7,7 @@ import authService from "../services/auth-service";
 import logo from "../../assets/Logo/Logos@3x.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Spinner } from "react-bootstrap";
 
 function SignUp() {
   let navigate = useNavigate();
@@ -15,12 +16,14 @@ function SignUp() {
   // const [showConfirmPassword, setShowConfirmPassword]=useState(false);
 
   const initialValues = {
-    username: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
     showPassword: false,
     showConfirmPassword: false,
+    loading: false
   };
 
   const [errorIs, setErrorIs] = useState(null);
@@ -84,23 +87,42 @@ function SignUp() {
       });
   }
 
+ 
   const handleSignup = async (event) => {
     event.preventDefault();
     try {
       await authService
         .signUp({
-          name: signUp.username,
+          first_name: signUp.firstName,
+          last_name: signUp.lastName,
           email: signUp.email,
           password: signUp.password,
           password2: signUp.confirmPassword,
         })
         .then(
           (resp) => {
+
+            setLoginInputs({
+              loading: true
+            })
+            if(localStorage.getItem("user")){
+              navigator('/home');
+    
+              if(navigator('/home')){
+                setLoginInputs({
+                  loading:false
+                })
+              }
+              
+              window.location.reload();
+              
+              localStorage.setItem("signup", JSON.stringify( signUp.firstName,  signUp.lastName ));
+            }
             // check token and status should be 200
             // console.log("Sign up successfully", resp);
-            navigate("/home");
+
+           
             window.location.reload();
-            localStorage.setItem("signup", JSON.stringify(signUp.username));
           },
           (error) => {
             console.error(error);
@@ -115,6 +137,14 @@ function SignUp() {
       console.log(err);
     }
   };
+
+   // Loading Spinner
+   let spinner;
+
+   if(loginInputs.loading){
+     spinner = <div className="spinner"><Spinner/></div>
+   }
+ 
 
   return (
     <div className="backGround">
@@ -140,9 +170,19 @@ function SignUp() {
             <input
               type="text"
               className="email_password"
-              placeholder="Enter User Name"
-              name="username"
-              value={signUp.username}
+              placeholder="Enter First Name"
+              name="firstName"
+              value={signUp.firstName}
+              onChange={handleInput}
+            />
+          </div>
+          <div className="boxField">
+            <input
+              type="text"
+              className="email_password"
+              placeholder="Enter Last Name"
+              name="lastName"
+              value={signUp.lastName}
               onChange={handleInput}
             />
           </div>

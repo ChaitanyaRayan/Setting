@@ -13,6 +13,7 @@ import MyAccount from '../components/SettingsComponents/MyAccount/MyAccount';
 import Notifications from '../components/SettingsComponents/SettingsNotifications/Notifications/Notifications';
 import SettingsTags from '../components/SettingsComponents/SettingsTags/SettingsTags';
 import SettingsThemes from '../components/SettingsComponents/SettingsThemes/SettingsThemes';
+import SettingsNotifications from '../components/SettingsComponents/SettingsNotifications/SettingsNotifications';
 
 
 function MyRoutes(){
@@ -31,10 +32,9 @@ function MyRoutes(){
             <Route path='/search' element={<SearchPage/>}/>
             <Route path='/setting' element={<SettingsPage/>}>
                 <Route path='myaccount' element={<MyAccount/>}/>
-                <Route path='notifications' element={<Notifications/>}/>
+                <Route path='notifications' element={<SettingsNotifications/>}/>
                 <Route path='tags' element={<SettingsTags/>}/>
                 <Route path='themes' element={<SettingsThemes/>}/>
-
             </Route>
             
         </Routes>

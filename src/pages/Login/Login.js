@@ -3,12 +3,11 @@ import "./Login.css";
 import Header from "../../components/common/Header/Header";
 import {FaEye, FaEyeSlash} from 'react-icons/fa'
 import { Link, Route, useNavigate } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import authService from "../services/auth-service";
 import logo  from "../../assets/Logo/Logos@3x.png";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useParams } from "react-router-dom";
 import Spinner from "../../components/common/Spinner/Spinner";
 
 const Login = ({onInputChange}) => {
@@ -17,7 +16,6 @@ const Login = ({onInputChange}) => {
 
   // const [password, setPassword] = useState(false);
 
-  const {forgotPasswordId} = useParams();
 
   const initialValues = {
     email: '',
@@ -71,13 +69,14 @@ const Login = ({onInputChange}) => {
   // login code starts
   const handleLogin = async (event)=>{
     event.preventDefault();
+
+    if(!loginInputs.email || !loginInputs.password){
+      toast.error("All fields are required",{
+        position: toast.POSITION.TOP_RIGHT
+      });
+      return;
+    }
     try{
-    //   if(loginInputs.email.trim() || loginInputs.password.trim() === ''){
-    //     toast.error('All fields are required.', {
-    //       position: toast.POSITION.TOP_RIGHT
-    //   });
-    // }
-    // else{
       await authService.login({email:loginInputs.email, password:loginInputs.password}).then(() =>{
         // console.log("Token resp"+": "+resp);
         setLoginInputs({
@@ -99,16 +98,16 @@ const Login = ({onInputChange}) => {
       },
       (error)=>{
         console.error(error);
-        
+          toast.error('Invalid email or password.', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+      
       });
+      
     }
-  // }
-
     catch(err){
       console.log(err);
-      toast.error('Invalid email or password.', {
-        position: toast.POSITION.TOP_RIGHT
-      });
+       
     }
   }
 
@@ -190,7 +189,7 @@ const Login = ({onInputChange}) => {
     {/* <p onClick={() =>navigator('/forgotPassword')} className="forgotPassword"> Forgot Password</p> */}
     <p className="forgotPassword" onClick={forgotPassword}> <Link >Forgot Password</Link></p>
     <hr className="hr"/>
-    {/* <Link to="/signup"> <button onClick={() =>navigator('/signup')}  className="btn btn-primary">SignUp</button></Link> */}
+    <Link to="/signup"> <button onClick={() =>navigator('/signup')}  className="btn btn-primary">SignUp</button></Link>
       </div>
       <ToastContainer/>
     </div>
