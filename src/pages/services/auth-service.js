@@ -3,8 +3,8 @@ import axios from 'axios'
 
 
 
-const baseUrl = "http://13.52.39.75:8000/user";
-// const baseUrl = "http://127.0.0.1:8000/user";
+// const baseUrl = "http://13.52.39.75:8000/user";
+const baseUrl = "http://127.0.0.1:8000/user";
 
 
  
@@ -154,11 +154,11 @@ const getSignUpData = async () =>{
           setTimeout(
             () =>{
                 refresh_token = tokenObj.token.refresh
-                alert(refresh_token)
+                // alert(refresh_token)
                 changePro(values,refresh_token)
             },1000
           )
-          alert('refresh', refresh_token)
+        //   alert('refresh', refresh_token)
         
         //   alert(refresh_token);
             // console.log(token);

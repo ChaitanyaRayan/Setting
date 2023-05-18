@@ -146,3 +146,11 @@
     height: auto;
     border-bottom: 1px solid blue;
 }
+
+.spinners{
+  width: auto;
+  height: 100vh;
+  position: fixed;
+  align-items: center;
+  z-index: 1;
+}

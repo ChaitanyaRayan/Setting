@@ -8,7 +8,7 @@ import authService from "../services/auth-service";
 import logo  from "../../assets/Logo/Logos@3x.png";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Spinner from "../../components/common/Spinner/Spinner";
+import Spinners from "../../components/common/Spinner/Spinner";
 
 const Login = ({onInputChange}) => {
 
@@ -118,7 +118,7 @@ const Login = ({onInputChange}) => {
   let spinner;
 
   if(loginInputs.loading){
-    spinner = <div className="spinner"><Spinner/></div>
+    spinner = <div className="spinner"><Spinners/></div>
   }
 // ends
 

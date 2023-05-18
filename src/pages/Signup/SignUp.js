@@ -7,8 +7,7 @@ import authService from "../services/auth-service";
 import logo from "../../assets/Logo/Logos@3x.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Spinner } from "react-bootstrap";
-
+import Spinners from "../../components/common/Spinner/Spinner";
 function SignUp() {
   let navigate = useNavigate();
   // const [password, setPassword] = useState('');
@@ -23,7 +22,7 @@ function SignUp() {
     confirmPassword: "",
     showPassword: false,
     showConfirmPassword: false,
-    loading: false
+    loading: false,
   };
 
   const [errorIs, setErrorIs] = useState(null);
@@ -87,7 +86,8 @@ function SignUp() {
       });
   }
 
- 
+  
+
   const handleSignup = async (event) => {
     event.preventDefault();
     try {
@@ -100,29 +100,24 @@ function SignUp() {
           password2: signUp.confirmPassword,
         })
         .then(
-          (resp) => {
-
+          () => {
             setSignUp({
               loading: true
             })
-            if(localStorage.getItem("user")){
-              navigator('/home');
-    
-              if(navigator('/home')){
+
+            if(localStorage.getItem('user')){
+              navigate("/home")
+
+              if(navigate('/home')){
                 setSignUp({
                   loading:false
                 })
               }
-              
               window.location.reload();
-              
               localStorage.setItem("signup", JSON.stringify( signUp.firstName,  signUp.lastName ));
             }
             // check token and status should be 200
             // console.log("Sign up successfully", resp);
-
-           
-            window.location.reload();
           },
           (error) => {
             console.error(error);
@@ -138,16 +133,18 @@ function SignUp() {
     }
   };
 
-   // Loading Spinner
-   let spinner;
+  let spinner;
 
-   if(signUp.loading){
-     spinner = <div className="spinner"><Spinner/></div>
-   }
- 
+  if(signUp.loading){
+    spinner = <div className="spinners"><Spinners/></div>
+  }
+  
 
   return (
     <div className="backGround">
+      <div className="spinners">
+        {spinner}
+      </div>
       <div className="Login_Carousel col-8 ">
         <div className="title_side">
           <img src={logo} alt="" className="logo" />

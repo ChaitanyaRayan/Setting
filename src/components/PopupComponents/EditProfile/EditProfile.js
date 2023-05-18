@@ -26,7 +26,7 @@ const EditProfile = ({ trigger, setTrigger, details }) => {
    await authService
       .updateProfile(values)
       .then((resp) => {
-        if (resp.data.status) {
+        if (resp) {
             const success = resp.data;
             alert(success);
             toast.success(`${success}`, {
@@ -89,6 +89,7 @@ const EditProfile = ({ trigger, setTrigger, details }) => {
           </button>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   ) : (
     ""

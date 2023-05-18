@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { settingService } from '../../../ServiceAPI/SettingService/setting-service';
 import deleteUserCss from './DeleteUserRole.module.css'
+import { FaAd } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const DeleteUserRole = ({trigger, cancel,userId}) => {
@@ -11,14 +13,18 @@ const DeleteUserRole = ({trigger, cancel,userId}) => {
     // delete the user
   const deleteUserRole = async () =>{
     // if(userId && roleId){
-        cancel(true)
+        // cancel(true)
         console.log(userId);
-   await settingService.deleteUser(userId.user_id).then((resp) =>{
-      if(resp.status === 204){
-console.log(cancel);
+        await settingService.deleteUser(userId.user_id).then((resp) =>{
+         
+          if(resp.status === 204){
+    console.log(cancel);
+  }
+  
+  cancel(true)
 
-      }
-    })
+})
+
     // await settingService.deleteRole(roleId).then((resp) =>{
     //   if(resp.status === 204){
     //     setIsReload((prev) => !prev)
@@ -65,6 +71,9 @@ created by this user will be lost.
             <button className={deleteUserCss.noButton} onClick={() => cancel(false)}>No</button>
         </div>
     </div>
+
+    <ToastContainer/>
+
     </div>
   ): ''
   )

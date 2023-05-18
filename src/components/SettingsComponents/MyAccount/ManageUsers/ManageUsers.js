@@ -3,6 +3,7 @@ import manageUserCss from "./ManageUsers.module.css";
 import axios from "axios";
 import {
   FaEdit,
+  FaEllipsisV,
   FaExpand,
   FaInfo,
   FaInfoCircle,
@@ -14,6 +15,7 @@ import { settingService } from "../../../../ServiceAPI/SettingService/setting-se
 import AddUsers from "../../../PopupComponents/AddNewUsers/AddUsers";
 import DeleteUserRole from "../../../PopupComponents/DeleteUserRole/DeleteUserRole";
 import EditUserRole from "../../../PopupComponents/EditUserRole/EditUserRole";
+import Spinners from "../../../common/Spinner/Spinner";
 
 function ManageUsers() {
 
@@ -31,34 +33,58 @@ const [searchUser, setSearchUser] = useState(''); // searching user in input fie
 const [filteredResults, setFilteredResults] = useState([])
 
 const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
-const [inActiveAPI, setInActiveAPI] = useState('All')
+const [inActiveAPI, setInActiveAPI] = useState('All');
 
+const [loading, setLoading] = useState(false)
 
   useEffect(() => {
 if(inActiveAPI === 'All'){
-  setIsReload(false);
+  setLoading(true)
+  setIsReload(true)
   settingService.getUsers().then((resp) =>{
     setSettingUsers(resp)
     console.log(resp);
+    if(resp){
+      setIsReload(false);
+      setLoading(false)
+    }
   })
 }
 else if(inActiveAPI === 'All Inactive'){
-  setIsReload(false);
+  setLoading(true)
+  setIsReload(true)
   settingService.getAllInactive().then((resp) =>{
     setSettingUsers(resp)
     console.log("inact",resp);
+    if(resp){
+      setIsReload(false);
+      setLoading(false)
+    }
   })
 }
 else {
+  setLoading(true)
+  setIsReload(true)
+
   settingService.getAllActive().then((resp) =>{
-    setIsReload(false);
     setSettingUsers(resp)
     console.log('act',resp);
+    if(resp){
+      setLoading(false)
+      setIsReload(false);
+    }
   })
 
 }
   
   }, [isReload,inActiveAPI]);
+
+  // Spinner code starts
+  let spinnerLoad;
+  if(loading){
+    spinnerLoad =<div className={manageUserCss.spinner}><Spinners/></div>
+  }
+  //  ends
 
   // to open menu option after checking icon
   const toggleMenu =(index) =>{
@@ -124,13 +150,19 @@ const handleCheckboxClick = (user) => {
     if(user.active) {
       setIsReload(true)
       settingService.updateUsers(user.user_id, false).then((resp) =>{
-        setIsReload(false)
+        if(resp){
+          setIsReload(false)
+
+        }
         console.log(resp);
       })  
     } else {
       setIsReload(true)
       settingService.updateUsers(user.user_id, true).then((resp) =>{
-        setIsReload(false)
+        if(resp){
+          setIsReload(false)
+          
+        }
         console.log(resp);
       })  
     }
@@ -144,6 +176,9 @@ const handleCheckboxClick = (user) => {
 
   return (
     <div className={manageUserCss.body}>
+       <div className={manageUserCss.spinner}>
+        {spinnerLoad}
+      </div>
       <div className={manageUserCss.searchSection}>
         <div
           className={`${manageUserCss.leftsearchSection} col-6 d-flex flex-row`}
@@ -248,7 +283,7 @@ onChange={handleSelectAll}
               </td>
               <td className={`${manageUserCss.editIcons} col-1`}>
                 <div onClick={() =>toggleMenu(index)} className={manageUserCss.iconContainer}>
-                <FaExpand />
+                <FaEllipsisV />
                 </div>
                 <div >
                 {isMenu === index &&
@@ -320,7 +355,7 @@ settingUsers.map((user,index) =>
               </td>
               <td className={`${manageUserCss.editIcons} col-1`}>
                 <div onClick={() =>toggleMenu(index)} className={manageUserCss.iconContainer}>
-                <FaExpand />
+                <FaEllipsisV/>
                 </div>
                 <div >
                 {isMenu === index &&

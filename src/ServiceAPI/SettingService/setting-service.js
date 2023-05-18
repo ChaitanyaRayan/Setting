@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const baseUrl = "http://127.0.0.1:8000/settings";
-const baseUrl = "http://13.52.39.75:8000/settings";
+const baseUrl = "http://127.0.0.1:8000/settings";
+// const baseUrl = "http://13.52.39.75:8000/settings";
 
 
 const getUsers = async () => {
@@ -100,7 +100,7 @@ export const settingService = {
   updateUsers,
   deleteRole,
   deleteUser,
-  updateRole,
+    updateRole,
   getAllInactive,
   getAllActive,
 };

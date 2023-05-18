@@ -48,15 +48,15 @@ const AddUsers = ({trigger, onDismiss}) => {
         <div className='inputFields'>
           <div className='label-Inputs'>
             <label className='Add-UserLabel'>First Name</label>
-            <input className='Add-UserField'type='text'  placeholder='Current Password' name='first_name' onChange={onChangeHandling}/>
+            <input className='Add-UserField'type='text'  placeholder='Enter First Name' name='first_name' onChange={onChangeHandling}/>
             </div>
           <div className='label-Inputs'>
             <label className='Add-UserLabel'>Last Name</label>
-            <input className='Add-UserField' type='text' placeholder='New Password' name='last_name' onChange={onChangeHandling}/>
+            <input className='Add-UserField' type='text' placeholder='Enter Last Name' name='last_name' onChange={onChangeHandling}/>
             </div>
           <div className='label-Inputs'>
             <label className='Add-UserLabel'>Email Address</label>
-            <input className='Add-UserField' type='email'  placeholder='Confirm Password' name='email' onChange={onChangeHandling}/>
+            <input className='Add-UserField' type='email'  placeholder='Enter Email' name='email' onChange={onChangeHandling}/>
             </div>
           <div className='label-Inputs'>
             <label className='Add-UserLabel'>Access Level &nbsp; <FaInfoCircle/></label>

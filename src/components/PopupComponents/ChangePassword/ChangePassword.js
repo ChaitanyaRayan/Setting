@@ -53,10 +53,15 @@ const ChangePassword = (props) => {
           (resp) => {
             // check token and status should be 200
             // console.log("Sign up successfully", resp);
-            const success = resp.data.msg
-            toast.success(`${success}` ,{
-              position: toast.POSITION.TOP_RIGHT
-            })
+            if(resp){
+
+              const success = resp.data.msg
+  
+              toast.success(`${success}` ,{
+                position: toast.POSITION.TOP_RIGHT
+              })
+              props.setTrigger(false)
+            }
             // localStorage.setItem("signup", JSON.stringify( signUp.firstName,  signUp.lastName ));
           },
           (error) => {

@@ -23,12 +23,13 @@ const EditUserRole = ({trigger,cancel, userRole}) => {
 
    await settingService.updateRole(userRole.user_id, updateRole).then((resp) =>{
       console.log(resp.data.role_name);
-  
+  if(resp){
         const success = "Role Changed";
         toast.success(`${success}`,{
           position:toast.POSITION.TOP_RIGHT
         })
       }
+    }
    )
   }catch(err){
     const error = err;
@@ -57,10 +58,10 @@ const EditUserRole = ({trigger,cancel, userRole}) => {
               </div>
               <div className={`${editPopCss.userDetails} d-flex flex-column`}>
               <label className={editPopCss.userName}>
-  Anuran Chakraborty
+  {userRole.first_name}
 </label>
 <span className={editPopCss.userEmail}>
-  anuran.chakraborty@infovision.com
+  {userRole.email}
 </span>
               </div>
             </div>
